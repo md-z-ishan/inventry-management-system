@@ -34,7 +34,8 @@ app.use(cors({
             'http://localhost:3000',
             'http://localhost:5173',
             'http://localhost:3001',
-            process.env.FRONTEND_URL
+            process.env.FRONTEND_URL,
+            'https://inventry-management-system-ten.vercel.app'
         ];
         // Allow requests with no origin (like mobile apps or curl requests)
         if (!origin) return callback(null, true);

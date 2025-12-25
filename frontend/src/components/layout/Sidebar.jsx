@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import {
     DashboardOutlined,
     QrCodeScanner,
@@ -16,6 +17,7 @@ import {
 
 const Sidebar = ({ isOpen, onClose }) => {
     const location = useLocation();
+    const { logout } = useAuth();
 
     const menuItems = [
         { path: '/dashboard', label: 'Dashboard', icon: <DashboardOutlined /> },
@@ -78,7 +80,10 @@ const Sidebar = ({ isOpen, onClose }) => {
 
                 {/* Bottom Admin/Logout Section */}
                 <div className="p-4 border-t border-white/5 mx-4 mb-4">
-                    <button className="flex items-center justify-center w-full px-4 py-3 rounded-xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 border border-transparent hover:border-red-500/20 group">
+                    <button
+                        onClick={logout}
+                        className="flex items-center justify-center w-full px-4 py-3 rounded-xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all duration-300 border border-transparent hover:border-red-500/20 group"
+                    >
                         <LogoutOutlined className="mr-3 group-hover:-translate-x-1 transition-transform" fontSize="small" />
                         <span className="font-medium">Logout</span>
                     </button>
