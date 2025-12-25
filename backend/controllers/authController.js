@@ -83,8 +83,8 @@ exports.register = asyncHandler(async (req, res, next) => {
             userAgent: req.get('user-agent')
         });
 
-        // Send welcome email
-        await emailService.sendWelcomeEmail(user);
+        // Send welcome email (non-blocking)
+        emailService.sendWelcomeEmail(user);
 
         // Send tokens
         await createSendToken(user, 201, res, req);
