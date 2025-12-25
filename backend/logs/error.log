@@ -1,0 +1,158 @@
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:23:25"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:24:13"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:24:13"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:24:54"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:24:54"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:12"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:12"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:31"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:31"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:47"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:25:47"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:15"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:15"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:26"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:26:36"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:30:40"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:30:40"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:31:20"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:31:20"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 12:36:41"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/products - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:36:41"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:12"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:12"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:38"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:38"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:45"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:50:45"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:51:40"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:51:40"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:53:55"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:53:55"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 12:54:25"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:56:39"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:56:48"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:56:50"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:57:04"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:57:14"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:59:02"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 13:59:02"}
+{"level":"error","message":"500 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:00:46"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:01:02"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:01:14"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:01:19"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:03:03"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:03:26"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:03:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:28"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:29"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:30"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:32"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:05:32"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:09"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:13"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:23"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:23"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:23"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:23"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:23"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:24"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:08:24"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:13:50"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:13:50"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:14:18"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:18:52"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:18:52"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:19:28"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 14:19:46"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:32:50"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:33:41"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:34:47"}
+{"level":"error","message":"500 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:36:04"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:36:25"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:36:55"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:36:55"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:37:49"}
+{"level":"error","message":"500 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:37:57"}
+{"level":"error","message":"500 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:43:42"}
+{"level":"error","message":"500 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:46:27"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 14:53:15"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 16:53:54"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 16:55:57"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 16:58:46"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:09:18"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:15:15"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:15:41"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:15:43"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:16:41"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:18:43"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:18:52"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:18:55"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:18:59"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:19:04"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 17:25:44"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:25:52"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:25:52"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:25:52"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:25:52"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 17:27:11"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:39:53"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"low-stock\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:42:45"}
+{"level":"error","message":"500 - Cast to Number failed for value \"$minStockLevel\" (type string) at path \"quantity\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:46:08"}
+{"level":"error","message":"500 - Cast to Number failed for value \"$minStockLevel\" (type string) at path \"quantity\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:46:41"}
+{"level":"error","message":"500 - Cast to Number failed for value \"$minStockLevel\" (type string) at path \"quantity\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:46:51"}
+{"level":"error","message":"500 - Cast to Number failed for value \"$minStockLevel\" (type string) at path \"quantity\" for model \"Product\" - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:50:38"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:54:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:54:39"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:54:41"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:54:42"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:54:44"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:57:02"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 17:57:16"}
+{"level":"error","message":"500 - Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: inventory_db.users index: email_1 dup key: { email: \"mdzishan24680@gmail.com\" } - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-25 18:18:44"}
+{"level":"error","message":"500 - Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: inventory_db.users index: email_1 dup key: { email: \"mdzishan24680@gmail.com\" } - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-25 18:19:23"}
+{"level":"error","message":"500 - Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: inventory_db.users index: email_1 dup key: { email: \"mdzishan24680@gmail.com\" } - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-25 18:29:07"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:31:28"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:36:29"}
+{"level":"error","message":"500 - Customer validation failed: email: Please provide a valid email - /api/v1/partners/customers - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 18:38:30"}
+{"level":"error","message":"500 - Customer validation failed: email: Please provide a valid email - /api/v1/partners/customers - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 18:38:31"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:39:00"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:56:41"}
+{"level":"error","message":"404 - Product not found for this QR code not found - /api/v1/products/qr/fas6concrete - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:57:54"}
+{"level":"error","message":"404 - Product not found for this QR code not found - /api/v1/products/qr/fas6concrete - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:57:55"}
+{"level":"error","message":"500 - Cast to ObjectId failed for value \"2017-00828\" (type string) at path \"_id\" for model \"Product\" - /api/v1/products/qr/2017-00828 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 18:58:34"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:15:05"}
+{"level":"error","message":"401 - No refresh token found - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:15:05"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:16:10"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:16:21"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:20:40"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:20:44"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:07"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:25"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:39"}
