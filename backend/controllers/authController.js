@@ -231,7 +231,7 @@ exports.logout = asyncHandler(async (req, res, next) => {
 // @route   GET /api/v1/auth/me
 // @access  Private
 exports.getMe = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).lean();
 
     res.status(200).json({
         success: true,
@@ -243,6 +243,9 @@ exports.getMe = asyncHandler(async (req, res, next) => {
                 role: user.role,
                 department: user.department,
                 phone: user.phone,
+                address: user.address,
+                avatar: user.avatar,
+                preferences: user.preferences,
                 isActive: user.isActive,
                 lastLogin: user.lastLogin,
                 loginHistory: user.loginHistory,
@@ -260,7 +263,8 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
         name: req.body.name,
         email: req.body.email,
         department: req.body.department,
-        phone: req.body.phone
+        phone: req.body.phone,
+        address: req.body.address
     };
 
     // Remove undefined fields
@@ -350,6 +354,107 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
             },
             token
         }
+    });
+});
+
+// @desc    Update user preferences
+// @route   PUT /api/v1/auth/preferences
+// @access  Private
+exports.updatePreferences = asyncHandler(async (req, res, next) => {
+    const { theme, notifications } = req.body;
+
+    // Validate theme if provided
+    if (theme && !['light', 'dark'].includes(theme)) {
+        throw new ValidationError('Invalid theme preference');
+    }
+
+    const updates = {};
+    if (theme) updates['preferences.theme'] = theme;
+    if (notifications) {
+        if (typeof notifications.email === 'boolean') updates['preferences.notifications.email'] = notifications.email;
+        if (typeof notifications.push === 'boolean') updates['preferences.notifications.push'] = notifications.push;
+    }
+
+    const user = await User.findByIdAndUpdate(
+        req.user._id,
+        { $set: updates },
+        { new: true, runValidators: true }
+    );
+
+    res.status(200).json({
+        success: true,
+        data: {
+            preferences: user.preferences
+        }
+    });
+});
+
+// @desc    Upload avatar
+// @route   POST /api/v1/auth/avatar
+// @access  Private
+exports.uploadAvatar = asyncHandler(async (req, res, next) => {
+    if (!req.file) {
+        // throw new ValidationError('Please upload an image file');
+        // fallback if no file but url provided (e.g. from frontend direct upload if we had that)
+        // For now, strict file check
+        return res.status(400).json({ success: false, message: 'Please upload an image file' });
+    }
+
+    const user = await User.findById(req.user._id);
+
+    // Construct public URL
+    // We need to serve the 'uploads' folder statically in server.js for this to work
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const avatarUrl = `${baseUrl}/uploads/${req.file.filename}`;
+
+    user.avatar = avatarUrl;
+    await user.save({ validateBeforeSave: false });
+
+    res.status(200).json({
+        success: true,
+        data: {
+            avatar: avatarUrl
+        }
+    });
+});
+
+// @desc    Logout from all devices
+// @route   POST /api/v1/auth/logoutall
+// @access  Private
+exports.logoutAll = asyncHandler(async (req, res, next) => {
+    // Revoke all refresh tokens for this user
+    await RefreshToken.updateMany(
+        { user: req.user._id, isActive: true },
+        {
+            revoked: Date.now(),
+            revokedByIp: req.ip,
+            replacedByToken: null
+        }
+    );
+
+    // Clear cookie
+    res.cookie('refreshToken', 'none', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    });
+
+    // Log audit
+    await AuditLog.create({
+        action: 'LOGOUT',
+        entity: 'USER',
+        entityId: req.user._id,
+        description: `User forced logout from all devices`,
+        performedBy: req.user._id,
+        performedByName: req.user.name,
+        userRole: req.user.role,
+        ipAddress: req.ip,
+        userAgent: req.get('user-agent'),
+        status: 'SUCCESS'
+    });
+
+    res.status(200).json({
+        success: true,
+        message: 'Logged out from all devices'
     });
 });
 

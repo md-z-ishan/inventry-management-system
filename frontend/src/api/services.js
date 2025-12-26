@@ -8,6 +8,11 @@ export const authAPI = {
   getMe: () => axios.get('/auth/me'),
   updateDetails: (userData) => axios.put('/auth/updatedetails', userData),
   updatePassword: (passwords) => axios.put('/auth/updatepassword', passwords),
+  updatePreferences: (preferences) => axios.put('/auth/preferences', preferences),
+  uploadAvatar: (formData) => axios.post('/auth/avatar', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  }),
+  logoutAll: () => axios.post('/auth/logoutall'),
 };
 
 // Product services

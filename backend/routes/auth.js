@@ -19,5 +19,11 @@ router.get('/logout', protect, authController.logout);
 router.get('/me', protect, authController.getMe);
 router.put('/updatedetails', protect, authController.updateDetails);
 router.put('/updatepassword', protect, authController.updatePassword);
+router.put('/preferences', protect, authController.updatePreferences);
+router.post('/logoutall', protect, authController.logoutAll);
+
+// Upload middleware
+const upload = require('../middleware/upload');
+router.post('/avatar', protect, upload.single('avatar'), authController.uploadAvatar);
 
 module.exports = router;

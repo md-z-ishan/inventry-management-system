@@ -47,6 +47,35 @@ const UserSchema = new mongoose.Schema({
         match: [/^[\+]?[1-9][\d]{0,15}$/, 'Please provide a valid phone number']
     },
 
+    avatar: {
+        type: String,
+        default: ''
+    },
+
+    address: {
+        type: String,
+        trim: true,
+        maxlength: [200, 'Address cannot be more than 200 characters']
+    },
+
+    preferences: {
+        theme: {
+            type: String,
+            enum: ['light', 'dark'],
+            default: 'dark'
+        },
+        notifications: {
+            email: {
+                type: Boolean,
+                default: true
+            },
+            push: {
+                type: Boolean,
+                default: true
+            }
+        }
+    },
+
     isActive: {
         type: Boolean,
         default: true
