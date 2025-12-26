@@ -70,7 +70,7 @@ Enterprise-grade QR Code based inventory management system built with the MERN s
    ```
 
 4. **Start MongoDB**
-   Make sure MongoDB is running on your system.
+   Make sure that the MongoDB is running on your system.
 
 ## 🚀 Running the Application
 
@@ -126,7 +126,7 @@ The server will start on `http://localhost:5000` (or the port specified in your 
 ### Health Check
 - `GET /api/v1/health` - API health check
 
-## 📁 Project Structure
+## 📁 The Project Structure
 
 ```
 inventory-system/
@@ -199,7 +199,7 @@ npm run test:watch
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create a new feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request

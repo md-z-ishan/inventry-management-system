@@ -47,6 +47,7 @@ import StaffManagement from './pages/admin/StaffManagement';
 import ActivityLogs from './pages/admin/ActivityLogs';
 
 // Theme
+// you can choose any theme, dark or light suitable to you
 const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -278,5 +279,6 @@ function App() {
     </ThemeProvider>
   );
 }
+// exporting the page
 
 export default App;
