@@ -253,3 +253,13 @@
 {"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:39:14"}
 {"level":"error","message":"409 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:39:22"}
 {"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:40:32"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:27"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:28"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:28"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:30"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:36"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:37"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:25:37"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:26:02"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:26:03"}
+{"level":"error","message":"500 - Validation failed: email: Please provide an email, name: Please provide a name - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 01:26:03"}

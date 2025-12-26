@@ -28,18 +28,19 @@ const Profile = () => {
 
     const fetchProfile = async () => {
         try {
-            const response = await authAPI.getCurrentUser();
+            const response = await authAPI.getMe();
+            console.log('Profile Data:', response.data);
             const userData = response.data.data.user;
             setUser({
-                name: userData.name,
-                email: userData.email,
-                role: userData.role,
+                name: userData.name || '',
+                email: userData.email || '',
+                role: userData.role || '',
                 userId: userData._id || '#USER-123456',
                 loginHistory: userData.loginHistory || []
             });
             setFormData({
-                name: userData.name,
-                email: userData.email
+                name: userData.name || '',
+                email: userData.email || ''
             });
             setLoading(false);
         } catch (error) {
@@ -150,6 +151,7 @@ const Profile = () => {
                                         variant="outlined"
                                         value={formData.name}
                                         onChange={handleChange}
+                                        InputLabelProps={{ shrink: true }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' },
@@ -172,6 +174,7 @@ const Profile = () => {
                                         variant="outlined"
                                         value={formData.email}
                                         onChange={handleChange}
+                                        InputLabelProps={{ shrink: true }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
                                                 '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' },
