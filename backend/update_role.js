@@ -10,7 +10,7 @@ const updateUserRole = async () => {
         await mongoose.connect(process.env.MONGODB_URI);
         console.log('MongoDB Connected');
 
-        const email = 'admin@example.com';
+        const email = 'mdzishan24680@gmail.com';
         const user = await User.findOne({ email });
 
         if (!user) {

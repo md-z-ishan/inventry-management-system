@@ -8,21 +8,21 @@ router.use(protect);
 // Suppliers
 router.route('/suppliers')
     .get(partnerController.getSuppliers)
-    .post(authorize('admin', 'manager'), partnerController.createSupplier);
+    .post(authorize('admin', 'manager', 'staff'), partnerController.createSupplier);
 
 router.route('/suppliers/:id')
     .get(partnerController.getSupplier)
-    .put(authorize('admin', 'manager'), partnerController.updateSupplier)
+    .put(authorize('admin', 'manager', 'staff'), partnerController.updateSupplier)
     .delete(authorize('admin'), partnerController.deleteSupplier);
 
 // Customers
 router.route('/customers')
     .get(partnerController.getCustomers)
-    .post(partnerController.createCustomer);
+    .post(authorize('admin', 'manager', 'staff'), partnerController.createCustomer);
 
 router.route('/customers/:id')
     .get(partnerController.getCustomer)
-    .put(partnerController.updateCustomer)
+    .put(authorize('admin', 'manager', 'staff'), partnerController.updateCustomer)
     .delete(authorize('admin'), partnerController.deleteCustomer);
 
 module.exports = router;

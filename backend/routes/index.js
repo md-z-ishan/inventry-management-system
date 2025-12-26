@@ -9,6 +9,7 @@ const categoryRoutes = require('./categories');
 const partnerRoutes = require('./partners');
 const transactionRoutes = require('./transactions');
 const inventoryRoutes = require('./inventory');
+const adminRoutes = require('./adminRoutes');
 
 // API version prefix
 const API_PREFIX = '/api/v1';
@@ -21,6 +22,7 @@ router.use(`${API_PREFIX}/categories`, categoryRoutes);
 router.use(`${API_PREFIX}/inventory`, inventoryRoutes);
 router.use(`${API_PREFIX}/partners`, partnerRoutes);
 router.use(`${API_PREFIX}/transactions`, transactionRoutes);
+router.use(`${API_PREFIX}/admin`, adminRoutes);
 
 // Health check endpoint
 router.get(`${API_PREFIX}/health`, (req, res) => {

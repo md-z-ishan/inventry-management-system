@@ -36,7 +36,15 @@ import TransactionDetail from './pages/TransactionDetail';
 import PrintLabels from './pages/PrintLabels';
 
 // Protected Route
+// Protected Route
 import ProtectedRoute from './routes/ProtectedRoute';
+import AdminRoute from './components/common/AdminRoute';
+
+// Admin Pages
+import AdminLayout from './components/layout/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import StaffManagement from './pages/admin/StaffManagement';
+import ActivityLogs from './pages/admin/ActivityLogs';
 
 // Theme
 const theme = createTheme({
@@ -199,6 +207,15 @@ function App() {
               {/* Public Routes */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+
+              {/* Admin Routes */}
+              <Route path="/admin" element={<AdminRoute />}>
+                <Route element={<AdminLayout />}>
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="staff" element={<StaffManagement />} />
+                  <Route path="logs" element={<ActivityLogs />} />
+                </Route>
+              </Route>
 
               {/* Protected Routes */}
               <Route path="/" element={

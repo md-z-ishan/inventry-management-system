@@ -80,3 +80,9 @@ export const userAPI = {
   deleteUser: (id) => axios.delete(`/users/${id}`),
   getUserActivity: (id, params) => axios.get(`/users/${id}/activity`, { params }),
 };
+
+// Admin Services
+export const adminAPI = {
+  getStats: () => axios.get('/admin/stats'),
+  getLogs: (params) => axios.get('/admin/logs', { params }),
+};

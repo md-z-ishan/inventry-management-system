@@ -156,3 +156,36 @@
 {"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:07"}
 {"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:25"}
 {"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/inventory/analysis/movement?days=7 - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 19:25:39"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/transactions?type= - GET - ::1","service":"inventory-api","timestamp":"2025-12-25 21:35:58"}
+{"level":"error","message":"401 - Invalid or expired refresh token - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-25 21:35:58"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 13:49:17"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 13:52:16"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 20:56:56"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 20:57:08"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 21:00:38"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 21:00:52"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 21:06:12"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 21:09:40"}
+{"level":"error","message":"400 - Validation failed - /api/v1/products?limit=1000 - GET - ::1","service":"inventory-api","timestamp":"2025-12-26 21:10:38"}
+{"level":"error","message":"500 - Customer validation failed: email: Please provide a valid email - /api/v1/partners/customers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:19:46"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:25"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:31"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:33"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:34"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:34"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:34"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:34"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 21:22:35"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:27:07"}
+{"level":"error","message":"403 - User role staff is not authorized to access this route - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:36:30"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:37:24"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:37:32"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:38:38"}
+{"level":"error","message":"409 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:38:45"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:39:14"}
+{"level":"error","message":"409 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:39:22"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-26 22:40:32"}
