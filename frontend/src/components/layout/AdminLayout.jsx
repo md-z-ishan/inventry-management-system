@@ -23,10 +23,14 @@ import {
     Menu as MenuIcon,
     Dashboard as DashboardIcon,
     People as PeopleIcon,
-    History as HistoryIcon,
-    ExitToApp as LogoutIcon,
     ChevronLeft as ChevronLeftIcon,
-    Inventory as InventoryIcon
+    Inventory as InventoryIcon,
+    Receipt as ReceiptIcon,
+    Assessment as AssessmentIcon,
+    Logout as LogoutIcon,
+    Category as CategoryIcon,
+    LocalShipping as LocalShippingIcon,
+    Group as GroupIcon
 } from '@mui/icons-material';
 import { useAuth } from '../../context/AuthContext';
 
@@ -60,9 +64,13 @@ const AdminLayout = () => {
 
     const menuItems = [
         { text: 'Dashboard', icon: <DashboardIcon />, path: '/admin' },
-        { text: 'Staff Management', icon: <PeopleIcon />, path: '/admin/staff' },
-        { text: 'Activity Logs', icon: <HistoryIcon />, path: '/admin/logs' },
-        { text: 'Inventory System', icon: <InventoryIcon />, path: '/dashboard' },
+        { text: 'Inventory', icon: <InventoryIcon />, path: '/admin/products' },
+        { text: 'Categories', icon: <CategoryIcon />, path: '/admin/categories' }, // Ensure CategoryIcon is imported
+        { text: 'Staff', icon: <PeopleIcon />, path: '/admin/staff' },
+        { text: 'Transactions', icon: <ReceiptIcon />, path: '/admin/transactions' },
+        { text: 'Suppliers', icon: <LocalShippingIcon />, path: '/admin/suppliers' }, // Ensure imported
+        { text: 'Customers', icon: <GroupIcon />, path: '/admin/customers' }, // Ensure imported
+        { text: 'Reports', icon: <AssessmentIcon />, path: '/admin/logs' },
     ];
 
     return (

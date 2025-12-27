@@ -58,13 +58,19 @@ exports.register = asyncHandler(async (req, res, next) => {
         throw new DuplicateError('User');
     }
 
-    // Create user - All new users are admins in this simplified system
+    // Create user - Allow role selection based on registration type
+    // Security Note: In a real production app, admin registration should be protected or behind a separate specific route/key.
+    // For this use case "multiple admins with their own environment", we allow it.
+
+    const roleToAssign = req.body.role === 'admin' ? 'admin' : 'staff';
+    const isAdmin = roleToAssign === 'admin';
+
     const user = await User.create({
         name,
         email,
         password,
-        role: 'admin',   // Everyone is admin
-        isAdmin: true,   // Enable admin privileges
+        role: roleToAssign,
+        isAdmin: isAdmin,
         department,
         phone,
         createdBy: req.user?._id

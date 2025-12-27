@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { TextField, Button, InputAdornment, IconButton, Typography, Box, CircularProgress } from '@mui/material';
+import { TextField, Button, InputAdornment, IconButton, CircularProgress } from '@mui/material';
 import { Visibility, VisibilityOff, Email, Lock, Inventory2 } from '@mui/icons-material';
 import { toast } from 'react-toastify';
 
 const Login = () => {
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [loading, setLoading] = useState(false);
+    const [loginRole, setLoginRole] = useState('admin'); // 'admin' or 'user'
     const [showPassword, setShowPassword] = useState(false);
-    const { login, isAuthenticated } = useAuth();
+    const { login, isAuthenticated, user } = useAuth();
     const navigate = useNavigate();
 
     // Redirect if already logged in
     React.useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/dashboard');
+        if (isAuthenticated && user) {
+            navigate(user.isAdmin ? '/admin' : '/user');
         }
-    }, [isAuthenticated, navigate]);
+    }, [isAuthenticated, user, navigate]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,7 +30,22 @@ const Login = () => {
         try {
             const result = await login(formData);
             if (result.success) {
-                navigate('/dashboard');
+                const user = result.user;
+
+                // Validate Role Selection
+                if (loginRole === 'admin') {
+                    if (!user.isAdmin) {
+                        toast.error('Access Denied: This account does not have Admin privileges.');
+                        // Ideally logout here or just don't redirect
+                        return;
+                    }
+                    navigate('/admin');
+                } else {
+                    // Logging in as User
+                    // Optional: Prevent admins from logging in as users? Or allow it? 
+                    // Usually allow, but redirect to user dashboard.
+                    navigate('/user');
+                }
             } else {
                 toast.error(result.error || 'Login failed');
             }
@@ -45,21 +61,26 @@ const Login = () => {
         <div className="min-h-screen flex bg-slate-900 overflow-hidden relative">
             {/* Background Effects */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-orange-500/20 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+                <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-pulse transition-colors duration-1000 ${loginRole === 'admin' ? 'bg-orange-500/20' : 'bg-blue-500/20'}`}></div>
+                <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[120px] animate-pulse delay-1000 transition-colors duration-1000 ${loginRole === 'admin' ? 'bg-blue-500/10' : 'bg-emerald-500/10'}`}></div>
             </div>
 
             {/* Left Side - Visual Branding */}
             <div className="hidden lg:flex w-1/2 relative items-center justify-center p-12">
                 <div className="relative z-10 text-white max-w-lg">
-                    <div className="w-20 h-20 bg-gradient-to-tr from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-8 shadow-2xl shadow-orange-500/20 animate-float">
-                        <Inventory2 sx={{ fontSize: 48, color: 'white' }} />
+                    <div className={`w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-2xl animate-float transition-all duration-500 ${loginRole === 'admin' ? 'bg-gradient-to-tr from-orange-500 to-amber-500 shadow-orange-500/20' : 'bg-gradient-to-tr from-blue-500 to-cyan-500 shadow-blue-500/20'}`}>
+                        <Inventory2 sx={{ fontSize: 56, color: 'white' }} />
                     </div>
                     <h1 className="text-6xl font-bold mb-6 leading-tight tracking-tight">
-                        Smart <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">Inventory</span> Management
+                        <span className="block mb-2">Smart Inventory</span>
+                        <span className={`text-transparent bg-clip-text bg-gradient-to-r transition-all duration-500 ${loginRole === 'admin' ? 'from-orange-400 to-amber-200' : 'from-blue-400 to-cyan-200'}`}>
+                            {loginRole === 'admin' ? 'Admin Portal' : 'Staff Portal'}
+                        </span>
                     </h1>
                     <p className="text-xl text-slate-300 leading-relaxed font-light">
-                        Experience the future of inventory tracking with our state-of-the-art dark mode interface, built for efficiency and speed.
+                        {loginRole === 'admin'
+                            ? 'Complete control over products, users, and system settings.'
+                            : 'Efficiently manage stock, scan QR codes, and handle transactions.'}
                     </p>
                 </div>
             </div>
@@ -67,9 +88,34 @@ const Login = () => {
             {/* Right Side - Form */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 relative z-10">
                 <div className="w-full max-w-md animate-fade-in backdrop-blur-xl bg-slate-800/40 p-10 rounded-3xl border border-white/5 shadow-2xl">
-                    <div className="text-center mb-10">
+
+                    {/* Role Selector Tabs */}
+                    <div className="flex p-1 bg-slate-900/50 rounded-xl mb-8 border border-white/5">
+                        <button
+                            onClick={() => setLoginRole('admin')}
+                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${loginRole === 'admin'
+                                ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25'
+                                : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                }`}
+                        >
+                            <Lock fontSize="small" />
+                            Admin Login
+                        </button>
+                        <button
+                            onClick={() => setLoginRole('user')}
+                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${loginRole === 'user'
+                                ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
+                                : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                }`}
+                        >
+                            <Inventory2 fontSize="small" />
+                            Staff Login
+                        </button>
+                    </div>
+
+                    <div className="text-center mb-8">
                         <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
-                        <p className="text-slate-400">Sign in to access your dashboard</p>
+                        <p className="text-slate-400">Sign in to access your {loginRole} dashboard</p>
                     </div>
 
                     <form className="space-y-6" onSubmit={handleSubmit}>
@@ -154,9 +200,9 @@ const Login = () => {
                             </div>
 
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-orange-400 hover:text-orange-300 transition-colors">
+                                <button type="button" className="font-medium text-orange-400 hover:text-orange-300 transition-colors">
                                     Forgot password?
-                                </a>
+                                </button>
                             </div>
                         </div>
 

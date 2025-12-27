@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       toast.success('Login successful!');
 
-      return { success: true };
+      return { success: true, user }; // Return user for redirect logic
     } catch (error) {
       return {
         success: false,

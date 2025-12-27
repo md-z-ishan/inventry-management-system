@@ -235,3 +235,6 @@
 {"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:08:51"}
 {"level":"error","message":"500 - AuditLog validation failed: action: `ALERT` is not a valid enum value for path `action`. - /api/v1/products - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:11:17"}
 {"level":"error","message":"500 - AuditLog validation failed: action: `ALERT` is not a valid enum value for path `action`. - /api/v1/products - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:11:37"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 16:08:35"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 16:08:36"}
+{"level":"error","message":"500 - File too large - /api/v1/auth/avatar - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 21:14:55"}

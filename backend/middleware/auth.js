@@ -64,15 +64,31 @@ exports.protect = asyncHandler(async (req, res, next) => {
     }
 });
 
-// Simplified authorization - just check if user is authenticated
-// In admin-only system, all authenticated users have full access
+// Role-based authorization
 exports.authorize = (...roles) => {
     return (req, res, next) => {
         if (!req.user) {
             throw new AuthenticationError('Not authenticated');
         }
-        // All authenticated users are admins, so just pass through
-        next();
+
+        const allowedRoles = roles.map(role => role.toLowerCase());
+
+        // STRICT ADMIN CHECK: Admin role requires isAdmin flag
+        if (allowedRoles.includes('admin')) {
+            if (req.user.isAdmin === true) {
+                return next(); // User is admin, allow access
+            }
+        }
+
+        // Check if user's role matches any allowed role
+        const userRole = req.user.role.toLowerCase();
+        if (allowedRoles.includes(userRole)) {
+            return next();
+        }
+
+        throw new AuthorizationError(
+            `Access denied: ${req.user.role} role is not authorized`
+        );
     };
 };
 

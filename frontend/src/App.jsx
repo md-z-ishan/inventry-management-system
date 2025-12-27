@@ -9,13 +9,12 @@ import './index.css';
 import { AuthProvider } from './context/AuthContext';
 
 // Layout Components
-import Layout from './components/layout/Layout';
 import ErrorBoundary from './components/common/ErrorBoundary';
 
 // Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+// Dashboard is now AdminDashboard or UserDashboard
 import ProductForm from './pages/ProductForm';
 import CategoryList from './pages/Categories/CategoryList';
 import ProductList from './pages/ProductList';
@@ -36,12 +35,18 @@ import PrintLabels from './pages/PrintLabels';
 // Protected Route
 import ProtectedRoute from './routes/ProtectedRoute';
 import AdminRoute from './components/common/AdminRoute';
+import UserRoute from './components/common/UserRoute';
+import RoleBasedRedirect from './components/common/RoleBasedRedirect';
 
 // Admin Pages
 import AdminLayout from './components/layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import StaffManagement from './pages/admin/StaffManagement';
 import ActivityLogs from './pages/admin/ActivityLogs';
+
+// User Pages
+import UserLayout from './components/layout/UserLayout';
+import UserDashboard from './pages/user/UserDashboard';
 
 // Theme
 // you can choose any theme, dark or light suitable to you
@@ -78,44 +83,52 @@ function App() {
                   <Route index element={<AdminDashboard />} />
                   <Route path="staff" element={<StaffManagement />} />
                   <Route path="logs" element={<ActivityLogs />} />
+
+                  {/* Inventory & Products */}
+                  <Route path="products" element={<ProductList />} />
+                  <Route path="products/new" element={<ProductForm />} />
+                  <Route path="products/edit/:id" element={<ProductForm />} />
+                  <Route path="categories" element={<CategoryList />} />
+
+                  {/* Partners */}
+                  <Route path="suppliers" element={<SupplierList />} />
+                  <Route path="customers" element={<CustomerList />} />
+
+                  {/* Operational */}
+                  <Route path="scan" element={<QRScannerPage />} />
+                  <Route path="print-labels" element={<PrintLabels />} />
+                  <Route path="qr-generator" element={<QRGenerator />} />
+
+                  {/* Transactions */}
+                  <Route path="transactions" element={<TransactionList />} />
+                  <Route path="transactions/new" element={<TransactionForm />} />
+                  <Route path="transactions/:id" element={<TransactionDetail />} />
+
+                  {/* Profile */}
+                  <Route path="profile" element={<Profile />} />
                 </Route>
               </Route>
 
-              {/* Protected Routes */}
+              {/* User/Staff Routes */}
+              <Route path="/user" element={<UserRoute />}>
+                <Route element={<UserLayout />}>
+                  <Route index element={<UserDashboard />} />
+                  <Route path="scan" element={<QRScannerPage />} />
+                  <Route path="products" element={<ProductList />} />
+                  <Route path="transactions" element={<TransactionList />} />
+                  <Route path="profile" element={<Profile />} />
+                </Route>
+              </Route>
+
+              {/* Root Redirect Logic */}
               <Route path="/" element={
                 <ProtectedRoute>
-                  <Layout />
+                  <RoleBasedRedirect />
                 </ProtectedRoute>
-              }>
-                <Route index element={<Navigate to="/dashboard" />} />
-                <Route path="dashboard" element={<ErrorBoundary><Dashboard /></ErrorBoundary>} />
+              } />
 
-                <Route path="qr-generator" element={<QRGenerator />} />
-
-                {/* Profile */}
-                <Route path="/profile" element={<Profile />} />
-
-                {/* Partners */}
-                <Route path="/partners/customers" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><CustomerList /></ProtectedRoute>} />
-                <Route path="/partners/suppliers" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><SupplierList /></ProtectedRoute>} />
-
-                {/* QR & Inventory */}
-                <Route path="/inventory/qr-scan" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><QRScannerPage /></ProtectedRoute>} />
-                <Route path="/inventory/print-labels" element={<ProtectedRoute roles={['admin', 'manager']}><PrintLabels /></ProtectedRoute>} />
-
-                {/* Transactions */}
-                <Route path="/inventory/print-labels" element={<ProtectedRoute roles={['admin', 'manager']}><PrintLabels /></ProtectedRoute>} />
-
-                {/* Products */}
-                <Route path="/categories" element={<ProtectedRoute roles={['admin', 'manager']}><CategoryList /></ProtectedRoute>} />
-                <Route path="/products" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><ProductList /></ProtectedRoute>} />
-                <Route path="/products/new" element={<ProtectedRoute roles={['admin', 'manager']}><ProductForm /></ProtectedRoute>} />
-                <Route path="/products/edit/:id" element={<ProtectedRoute roles={['admin', 'manager']}><ProductForm /></ProtectedRoute>} />
-
-                {/* Transactions */}
-                <Route path="/transactions/new" element={<TransactionForm />} />
-                <Route path="/transactions/:id" element={<TransactionDetail />} />
-              </Route>
+              {/* Legacy/Fallback - Redirect everything else to root */}
+              <Route path="/dashboard" element={<Navigate to="/" replace />} />
 
               {/* 404 Route */}
               <Route path="*" element={<Navigate to="/dashboard" />} />
@@ -123,7 +136,7 @@ function App() {
           </ErrorBoundary>
         </AuthProvider>
       </Router>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
 // exporting the page
