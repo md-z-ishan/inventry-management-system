@@ -25,12 +25,11 @@ import {
     Edit as EditIcon,
     Delete as DeleteIcon,
     Search as SearchIcon,
-    FilterList as FilterListIcon,
     QrCode as QrCodeIcon
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { productAPI } from '../api/services';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const ProductList = () => {
@@ -93,9 +92,9 @@ const ProductList = () => {
     return (
         <Box className="animate-fade-in">
             {/* Header */}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'center' }, mb: 4, gap: 2 }}>
                 <div>
-                    <Typography variant="h4" fontWeight="800" sx={{ color: 'white', mb: 1 }}>
+                    <Typography variant="h4" fontWeight="800" sx={{ color: 'white', mb: 1, fontSize: { xs: '2rem', md: '2.5rem' } }}>
                         Product Inventory
                     </Typography>
                     <Typography variant="body1" sx={{ color: 'text.secondary' }}>
@@ -109,7 +108,8 @@ const ProductList = () => {
                     sx={{
                         background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
                         fontWeight: 600,
-                        px: 3
+                        px: 3,
+                        width: { xs: '100%', md: 'auto' }
                     }}
                 >
                     Add Product

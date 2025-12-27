@@ -144,7 +144,7 @@ const TransactionDetail = () => {
                 {/* Decorative Header Bar */}
                 <Box sx={{ height: 8, background: 'linear-gradient(90deg, #f97316 0%, #3b82f6 100%)' }} />
 
-                <Box sx={{ p: { xs: 3, md: 5 } }}>
+                <Box sx={{ p: { xs: 2, md: 5 } }}>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={6}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>

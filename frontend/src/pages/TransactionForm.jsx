@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     Box, Paper, Typography, Button, TextField, Grid, MenuItem, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Autocomplete
 } from '@mui/material';
-import { Save, Add, Delete, ArrowBack } from '@mui/icons-material';
+import { Add, Delete, ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { transactionAPI, partnerAPI, productAPI } from '../api/services';
 import { toast } from 'react-toastify';
@@ -29,6 +29,7 @@ const TransactionForm = () => {
     useEffect(() => {
         fetchPartners();
         setFormData(prev => ({ ...prev, partnerId: '' })); // Reset partner when type changes
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type]);
 
     const fetchPartners = async () => {
@@ -133,7 +134,7 @@ const TransactionForm = () => {
                 New {type === 'SALE' ? 'Sales Order' : 'Purchase Order'}
             </Typography>
 
-            <Paper component="form" onSubmit={handleSubmit} sx={{ p: 4, borderRadius: 5 }} className="glass-card">
+            <Paper component="form" onSubmit={handleSubmit} sx={{ p: { xs: 2, md: 4 }, borderRadius: 5 }} className="glass-card">
                 <Grid container spacing={3} sx={{ mb: 4 }}>
                     <Grid item xs={12} md={4}>
                         <TextField
@@ -198,8 +199,8 @@ const TransactionForm = () => {
                 </Grid>
 
                 <Typography variant="h6" sx={{ color: 'white', mb: 2 }}>Items</Typography>
-                <TableContainer sx={{ mb: 3 }}>
-                    <Table>
+                <TableContainer sx={{ mb: 3, overflowX: 'auto' }}>
+                    <Table sx={{ minWidth: 650 }}>
                         <TableHead sx={{ bgcolor: 'rgba(255,255,255,0.05)' }}>
                             <TableRow>
                                 <TableCell sx={{ color: 'text.secondary', width: '40%' }}>Product</TableCell>

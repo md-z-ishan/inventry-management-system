@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Box, Paper, Typography, Button, TextField, useTheme, Avatar, Grid, Divider,
+    Box, Paper, Typography, Button, TextField, Avatar, Grid, Divider,
     CircularProgress, Tabs, Tab, IconButton, Switch,
     InputAdornment
 } from '@mui/material';
@@ -19,12 +19,12 @@ const TabPanel = (props) => {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`profile-tabpanel-${index}`}
+            id={`profile - tabpanel - ${index} `}
             {...other}
             style={{ height: '100%' }}
         >
             {value === index && (
-                <Box sx={{ p: { xs: 2, md: 4 }, height: '100%' }} className="animate-fade-in">
+                <Box sx={{ p: { xs: 3, md: 5 }, height: '100%' }} className="animate-fade-in">
                     {children}
                 </Box>
             )}
@@ -208,7 +208,7 @@ const Profile = () => {
     return (
         <Box sx={{ flexGrow: 1, pb: 4 }} className="animate-fade-in">
             <Box sx={{ mb: 4 }}>
-                <Typography variant="h3" component="h1" sx={{ fontWeight: 800, background: 'linear-gradient(to right, #fff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 1 }}>
+                <Typography variant="h3" component="h1" sx={{ fontWeight: 800, background: 'linear-gradient(to right, #fff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', mb: 1, fontSize: { xs: '2rem', md: '3rem' } }}>
                     My Profile
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'text.secondary' }}>
@@ -217,83 +217,84 @@ const Profile = () => {
             </Box>
 
             <Grid container spacing={4}>
-                {/* Left Panel: Avatar & Nav */}
                 <Grid item xs={12} md={4} lg={3}>
-                    <Paper className="glass-card" sx={{ p: 0, borderRadius: 5, overflow: 'hidden', height: '100%' }}>
-                        <Box sx={{ p: 4, textAlign: 'center', background: 'linear-gradient(to bottom, rgba(249, 115, 22, 0.1), transparent)' }}>
-                            <Box sx={{ position: 'relative', display: 'inline-block', mb: 2 }}>
-                                <Avatar
-                                    src={user.avatar}
-                                    sx={{
-                                        width: 120,
-                                        height: 120,
-                                        margin: '0 auto',
-                                        border: '4px solid rgba(249, 115, 22, 0.3)',
-                                        boxShadow: '0 0 20px rgba(249, 115, 22, 0.2)',
-                                        fontSize: '3rem',
-                                        bgcolor: 'primary.main'
-                                    }}
-                                >
-                                    {user.name?.charAt(0) || 'U'}
-                                </Avatar>
-                                <input
-                                    accept="image/*"
-                                    style={{ display: 'none' }}
-                                    id="avatar-upload"
-                                    type="file"
-                                    onChange={handleAvatarUpload}
-                                />
-                                <label htmlFor="avatar-upload">
-                                    <IconButton
-                                        component="span"
+                    <Box sx={{ width: { xs: '100%', md: 320 }, flexShrink: 0 }}>
+                        <Paper className="glass-card" sx={{ p: 0, borderRadius: 5, overflow: 'hidden', position: { xs: 'relative', md: 'sticky' }, top: 24, height: 'auto' }}>
+                            <Box sx={{ p: 4, textAlign: 'center', background: 'linear-gradient(to bottom, rgba(249, 115, 22, 0.1), transparent)' }}>
+                                <Box sx={{ position: 'relative', display: 'inline-block', mb: 2 }}>
+                                    <Avatar
+                                        src={user.avatar}
                                         sx={{
-                                            position: 'absolute',
-                                            bottom: 5,
-                                            right: 5,
-                                            bgcolor: 'primary.main',
-                                            color: 'white',
-                                            border: '3px solid #0f172a',
-                                            '&:hover': { bgcolor: 'primary.dark' }
+                                            width: 120,
+                                            height: 120,
+                                            margin: '0 auto',
+                                            border: '4px solid rgba(249, 115, 22, 0.3)',
+                                            boxShadow: '0 0 20px rgba(249, 115, 22, 0.2)',
+                                            fontSize: '3rem',
+                                            bgcolor: 'primary.main'
                                         }}
                                     >
-                                        <CameraAlt fontSize="small" />
-                                    </IconButton>
-                                </label>
+                                        {user.name?.charAt(0) || 'U'}
+                                    </Avatar>
+                                    <input
+                                        accept="image/*"
+                                        style={{ display: 'none' }}
+                                        id="avatar-upload"
+                                        type="file"
+                                        onChange={handleAvatarUpload}
+                                    />
+                                    <label htmlFor="avatar-upload">
+                                        <IconButton
+                                            component="span"
+                                            sx={{
+                                                position: 'absolute',
+                                                bottom: 5,
+                                                right: 5,
+                                                bgcolor: 'primary.main',
+                                                color: 'white',
+                                                border: '3px solid #0f172a',
+                                                '&:hover': { bgcolor: 'primary.dark' }
+                                            }}
+                                        >
+                                            <CameraAlt fontSize="small" />
+                                        </IconButton>
+                                    </label>
+                                </Box>
+
+                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 0.5, color: 'white' }}>{user.name}</Typography>
+                                <Typography variant="caption" sx={{
+                                    display: 'inline-block',
+                                    px: 1.5, py: 0.5,
+                                    borderRadius: 10,
+                                    bgcolor: 'rgba(255,255,255,0.1)',
+                                    color: 'text.secondary',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: 1,
+                                    fontWeight: 600
+                                }}>
+                                    {user.role}
+                                </Typography>
                             </Box>
 
-                            <Typography variant="h5" sx={{ fontWeight: 700, mb: 0.5, color: 'white' }}>{user.name}</Typography>
-                            <Typography variant="caption" sx={{
-                                display: 'inline-block',
-                                px: 1.5, py: 0.5,
-                                borderRadius: 10,
-                                bgcolor: 'rgba(255,255,255,0.1)',
-                                color: 'text.secondary',
-                                textTransform: 'uppercase',
-                                letterSpacing: 1,
-                                fontWeight: 600
-                            }}>
-                                {user.role}
-                            </Typography>
-                        </Box>
+                            <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
 
-                        <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
-
-                        <Box sx={{ p: 2 }}>
-                            <Tabs
-                                orientation="vertical"
-                                value={tabValue}
-                                onChange={handleTabChange}
-                                sx={{
-                                    '& .MuiTabs-indicator': { left: 0, width: 3, borderRadius: '0 4px 4px 0' }
-                                }}
-                            >
-                                <CustomTab icon={<Person fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Personal Info" />
-                                <CustomTab icon={<Security fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Security" />
-                                <CustomTab icon={<Settings fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Preferences" />
-                                <CustomTab icon={<History fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Activity Log" />
-                            </Tabs>
-                        </Box>
-                    </Paper>
+                            <Box sx={{ p: 2 }}>
+                                <Tabs
+                                    orientation="vertical"
+                                    value={tabValue}
+                                    onChange={handleTabChange}
+                                    sx={{
+                                        '& .MuiTabs-indicator': { left: 0, width: 3, borderRadius: '0 4px 4px 0' }
+                                    }}
+                                >
+                                    <CustomTab icon={<Person fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Personal Info" />
+                                    <CustomTab icon={<Security fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Security" />
+                                    <CustomTab icon={<Settings fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Preferences" />
+                                    <CustomTab icon={<History fontSize="small" sx={{ mr: 1.5 }} />} iconPosition="start" label="Activity Log" />
+                                </Tabs>
+                            </Box>
+                        </Paper>
+                    </Box>
                 </Grid>
 
                 {/* Right Panel: Content */}

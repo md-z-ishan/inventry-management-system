@@ -86,7 +86,7 @@ const Login = () => {
             </div>
 
             {/* Right Side - Form */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 relative z-10">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-8 lg:p-12 relative z-10">
                 <div className="w-full max-w-md animate-fade-in backdrop-blur-xl bg-slate-800/40 p-10 rounded-3xl border border-white/5 shadow-2xl">
 
                     {/* Role Selector Tabs */}

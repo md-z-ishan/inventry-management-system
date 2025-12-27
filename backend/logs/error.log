@@ -246,3 +246,12 @@
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:39:47"}
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:40:25"}
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:40:26"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:02"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:09"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:16"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:23"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:38"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:16:44"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:17:01"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:17:09"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-28 00:18:35"}

@@ -89,7 +89,7 @@ const TransactionList = () => {
                 <div>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
                         <ReceiptLong sx={{ fontSize: 40, color: 'primary.main', filter: 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.3))' }} />
-                        <Typography variant="h3" sx={{ fontWeight: 800, background: 'linear-gradient(to right, #fff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        <Typography variant="h3" sx={{ fontWeight: 800, background: 'linear-gradient(to right, #fff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: { xs: '2rem', md: '3rem' } }}>
                             Transactions
                         </Typography>
                     </Box>
@@ -129,7 +129,7 @@ const TransactionList = () => {
                     borderBottom: '1px solid rgba(255,255,255,0.05)'
                 }}>
                     {/* Custom Tabs */}
-                    <Box sx={{ bgcolor: 'rgba(15, 23, 42, 0.4)', p: 0.5, borderRadius: 3, display: 'inline-flex' }}>
+                    <Box sx={{ bgcolor: 'rgba(15, 23, 42, 0.4)', p: 0.5, borderRadius: 3, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
                         {['All Transactions', 'Purchases', 'Sales'].map((label, index) => (
                             <Box
                                 key={index}

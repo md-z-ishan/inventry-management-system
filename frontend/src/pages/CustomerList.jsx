@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
     Box, Paper, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-    IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField, useTheme, Chip, LinearProgress
+    IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField, LinearProgress
 } from '@mui/material';
 import { Add, Edit, Delete } from '@mui/icons-material';
 import { partnerAPI } from '../api/services';
 import { toast } from 'react-toastify';
 
 const CustomerList = () => {
-    const theme = useTheme();
+    // const theme = useTheme();
     const [customers, setCustomers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
@@ -77,7 +77,7 @@ const CustomerList = () => {
 
     return (
         <Box className="animate-fade-in">
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'center' }, mb: 4, gap: 2 }}>
                 <div>
                     <Typography variant="h4" sx={{ fontWeight: 800, color: 'white', mb: 1 }}>Customers</Typography>
                     <Typography variant="body1" sx={{ color: 'text.secondary' }}>Manage your customer base</Typography>
@@ -88,7 +88,8 @@ const CustomerList = () => {
                     onClick={() => handleOpen()}
                     sx={{
                         background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-                        color: 'white', px: 3, py: 1.5, borderRadius: 3, fontWeight: 600
+                        color: 'white', px: 3, py: 1.5, borderRadius: 3, fontWeight: 600,
+                        width: { xs: '100%', md: 'auto' }
                     }}
                 >
                     Add Customer
@@ -134,7 +135,7 @@ const CustomerList = () => {
             <Dialog open={openDialog} onClose={() => setOpenDialog(false)} PaperProps={{ sx: { borderRadius: 4, bgcolor: '#1e293b', backgroundImage: 'none', border: '1px solid rgba(255,255,255,0.1)' } }}>
                 <DialogTitle sx={{ color: 'white' }}>{editingId ? 'Edit Customer' : 'Add Customer'}</DialogTitle>
                 <DialogContent>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1, minWidth: 400 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1, minWidth: { xs: '100%', sm: 400 } }}>
                         <TextField
                             label="Name" fullWidth variant="outlined" value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}

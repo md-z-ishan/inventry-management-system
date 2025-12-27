@@ -33,7 +33,7 @@ const CategoryList = () => {
     const [editingCategory, setEditingCategory] = useState(null);
     const { hasAnyRole } = useAuth();
 
-    const canManage = hasAnyRole(['admin', 'manager']);
+    // const canManage = hasAnyRole(['admin', 'manager']);
 
     const fetchCategories = async () => {
         try {
@@ -111,11 +111,11 @@ const CategoryList = () => {
         } else {
             formik.resetForm();
         }
-    }, [editingCategory]);
+    }, [editingCategory, formik]);
 
     return (
         <Box className="animate-fade-in">
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'center' }, mb: 4, gap: 2 }}>
                 <div>
                     <Typography variant="h4" fontWeight="800" sx={{ color: 'white', mb: 1 }}>
                         Categories
@@ -130,7 +130,8 @@ const CategoryList = () => {
                     onClick={() => handleOpenDialog()}
                     sx={{
                         background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-                        fontWeight: 600
+                        fontWeight: 600,
+                        width: { xs: '100%', md: 'auto' }
                     }}
                 >
                     Add Category
@@ -138,7 +139,7 @@ const CategoryList = () => {
             </Box>
 
             <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: 4 }} className="glass-card">
-                <TableContainer>
+                <TableContainer sx={{ overflowX: 'auto' }}>
                     <Table>
                         <TableHead sx={{ bgcolor: 'rgba(15, 23, 42, 0.5)' }}>
                             <TableRow>
@@ -204,7 +205,7 @@ const CategoryList = () => {
                         backgroundImage: 'none',
                         color: 'white',
                         borderRadius: 3,
-                        minWidth: 400
+                        minWidth: { xs: '100%', sm: 400 }
                     }
                 }}
             >

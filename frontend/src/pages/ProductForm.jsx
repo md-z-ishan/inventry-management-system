@@ -36,6 +36,7 @@ const ProductForm = () => {
         if (isEditMode) {
             fetchProduct();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     const fetchCategories = async () => {
@@ -133,7 +134,7 @@ const ProductForm = () => {
     return (
         <Box className="animate-fade-in">
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                <IconButton onClick={() => navigate('/products')} sx={{ mr: 2, color: 'white' }}>
+                <IconButton onClick={() => navigate('/products')} sx={{ mr: 1, color: 'white' }}>
                     <ArrowBack />
                 </IconButton>
                 <Typography variant="h4" fontWeight="bold" sx={{ color: 'white' }}>
@@ -141,7 +142,7 @@ const ProductForm = () => {
                 </Typography>
             </Box>
 
-            <Paper component="form" onSubmit={formik.handleSubmit} sx={{ p: 4, borderRadius: 4 }} className="glass-card">
+            <Paper component="form" onSubmit={formik.handleSubmit} sx={{ p: { xs: 2, md: 4 }, borderRadius: 4 }} className="glass-card">
                 <Grid container spacing={3}>
                     {/* Basic Info */}
                     <Grid item xs={12}>

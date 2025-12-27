@@ -192,16 +192,16 @@ const Dashboard = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             {/* Header */}
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 5 }} className="animate-fade-in">
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'center' }, mb: 5, gap: 2 }} className="animate-fade-in">
                 <div>
-                    <Typography variant="h4" component="h1" sx={{ fontWeight: 800, letterSpacing: '-1px', color: 'white', mb: 1 }}>
+                    <Typography variant="h4" component="h1" sx={{ fontWeight: 800, letterSpacing: '-1px', color: 'white', mb: 1, fontSize: { xs: '2rem', md: '2.5rem' } }}>
                         Dashboard Overview
                     </Typography>
                     <Typography variant="body1" sx={{ color: 'text.secondary' }}>
                         Welcome back! Here's what's happening today.
                     </Typography>
                 </div>
-                <Box sx={{ display: 'flex', gap: 2 }}>
+                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', width: { xs: '100%', md: 'auto' } }}>
                     {(user?.isAdmin || ['admin', 'manager'].includes(user?.role)) ? (
                         <>
                             <Button
@@ -394,7 +394,7 @@ const Dashboard = () => {
                         <Box sx={{ p: 3, borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                             <Typography variant="h6" fontWeight="700" color="white">Recent Transactions</Typography>
                         </Box>
-                        <TableContainer>
+                        <TableContainer sx={{ overflowX: 'auto' }}>
                             <Table>
                                 <TableHead sx={{ bgcolor: 'rgba(15, 23, 42, 0.5)' }}>
                                     <TableRow>
