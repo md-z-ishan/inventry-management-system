@@ -238,3 +238,11 @@
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 16:08:35"}
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 16:08:36"}
 {"level":"error","message":"500 - File too large - /api/v1/auth/avatar - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 21:14:55"}
+{"level":"error","message":"500 - Validation failed: phone: Please provide a valid phone number - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-27 22:30:42"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:23:59"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:24:06"}
+{"level":"error","message":"409 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:28:25"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:39:47"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:39:47"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:40:25"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 23:40:26"}
