@@ -211,3 +211,27 @@
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 02:20:08"}
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 02:20:30"}
 {"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 02:20:31"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 09:59:21"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 09:59:22"}
+{"level":"error","message":"500 - File too large - /api/v1/auth/avatar - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 10:09:02"}
+{"level":"error","message":"400 - Validation failed - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 13:41:28"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/admin/stats - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 13:47:58"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/auth/me - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 13:47:58"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/admin/stats - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 13:48:18"}
+{"level":"error","message":"401 - Not authorized to access this route - /api/v1/auth/me - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 13:48:21"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/auth/me - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 14:14:44"}
+{"level":"error","message":"500 - Cannot read properties of null (reading '_id') - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 14:14:44"}
+{"level":"error","message":"403 - Access denied: Admin privileges required - /api/v1/partners/customers/694eaeb45e3eb67dc8212b0a - DELETE - ::1","service":"inventory-api","timestamp":"2025-12-27 14:17:50"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/products?limit=5 - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:49"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/inventory/summary - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:49"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/inventory/logs?limit=10 - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:49"}
+{"level":"error","message":"401 - Invalid or expired token - /api/v1/products/low-stock - GET - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:49"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:54"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:54"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:54"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:06:54"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:08:23"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:08:45"}
+{"level":"error","message":"500 - getaddrinfo ENOTFOUND ac-apry8sg-shard-00-00.9qk0fcd.mongodb.net - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:08:51"}
+{"level":"error","message":"500 - AuditLog validation failed: action: `ALERT` is not a valid enum value for path `action`. - /api/v1/products - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:11:17"}
+{"level":"error","message":"500 - AuditLog validation failed: action: `ALERT` is not a valid enum value for path `action`. - /api/v1/products - POST - ::1","service":"inventory-api","timestamp":"2025-12-27 15:11:37"}

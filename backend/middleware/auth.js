@@ -64,22 +64,14 @@ exports.protect = asyncHandler(async (req, res, next) => {
     }
 });
 
-// Role-based authorization
+// Simplified authorization - just check if user is authenticated
+// In admin-only system, all authenticated users have full access
 exports.authorize = (...roles) => {
     return (req, res, next) => {
         if (!req.user) {
             throw new AuthenticationError('Not authenticated');
         }
-
-        const userRole = req.user.role.toLowerCase();
-        const allowedRoles = roles.map(role => role.toLowerCase());
-
-        if (!allowedRoles.includes(userRole)) {
-            throw new AuthorizationError(
-                `User role ${req.user.role} is not authorized to access this route`
-            );
-        }
-
+        // All authenticated users are admins, so just pass through
         next();
     };
 };

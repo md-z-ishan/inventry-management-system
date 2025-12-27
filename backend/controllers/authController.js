@@ -50,7 +50,7 @@ const createSendToken = async (user, statusCode, res, req) => {
 // @access  Public
 exports.register = asyncHandler(async (req, res, next) => {
     console.log('Register request received:', req.body);
-    const { name, email, password, role, department, phone } = req.body;
+    const { name, email, password, department, phone } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -58,12 +58,13 @@ exports.register = asyncHandler(async (req, res, next) => {
         throw new DuplicateError('User');
     }
 
-    // Create user
+    // Create user - All new users are admins in this simplified system
     const user = await User.create({
         name,
         email,
         password,
-        role: role || 'staff',
+        role: 'admin',   // Everyone is admin
+        isAdmin: true,   // Enable admin privileges
         department,
         phone,
         createdBy: req.user?._id
@@ -241,6 +242,7 @@ exports.getMe = asyncHandler(async (req, res, next) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
+                isAdmin: user.isAdmin,
                 department: user.department,
                 phone: user.phone,
                 address: user.address,
@@ -304,6 +306,7 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
+                isAdmin: user.isAdmin,
                 department: user.department,
                 phone: user.phone
             }

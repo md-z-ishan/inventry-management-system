@@ -16,10 +16,9 @@ import ErrorBoundary from './components/common/ErrorBoundary';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-// import Products from './pages/Products/Products';
-// import ProductDetail from './pages/Products/ProductDetail';
-// import ProductForm from './pages/Products/ProductForm';
-// import Categories from './pages/Categories/Categories';
+import ProductForm from './pages/ProductForm';
+import CategoryList from './pages/Categories/CategoryList';
+import ProductList from './pages/ProductList';
 import QRScannerPage from './pages/QRScannerPage';
 import QRGenerator from './pages/QRGeneratorPage';
 // import InventoryLogs from './pages/Inventory/InventoryLogs';
@@ -105,7 +104,15 @@ function App() {
                 <Route path="/inventory/print-labels" element={<ProtectedRoute roles={['admin', 'manager']}><PrintLabels /></ProtectedRoute>} />
 
                 {/* Transactions */}
-                <Route path="/transactions" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><TransactionList /></ProtectedRoute>} />
+                <Route path="/inventory/print-labels" element={<ProtectedRoute roles={['admin', 'manager']}><PrintLabels /></ProtectedRoute>} />
+
+                {/* Products */}
+                <Route path="/categories" element={<ProtectedRoute roles={['admin', 'manager']}><CategoryList /></ProtectedRoute>} />
+                <Route path="/products" element={<ProtectedRoute roles={['admin', 'manager', 'staff']}><ProductList /></ProtectedRoute>} />
+                <Route path="/products/new" element={<ProtectedRoute roles={['admin', 'manager']}><ProductForm /></ProtectedRoute>} />
+                <Route path="/products/edit/:id" element={<ProtectedRoute roles={['admin', 'manager']}><ProductForm /></ProtectedRoute>} />
+
+                {/* Transactions */}
                 <Route path="/transactions/new" element={<TransactionForm />} />
                 <Route path="/transactions/:id" element={<TransactionDetail />} />
               </Route>

@@ -33,6 +33,7 @@ import {
     Inventory2
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { productAPI, inventoryAPI } from '../api/services';
 import { Line } from 'react-chartjs-2';
 import {
@@ -60,6 +61,7 @@ ChartJS.register(
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const { user } = useAuth();
     const theme = useTheme();
     const [stats, setStats] = useState({
         totalProducts: 0,
@@ -200,36 +202,58 @@ const Dashboard = () => {
                     </Typography>
                 </div>
                 <Box sx={{ display: 'flex', gap: 2 }}>
-                    <Button
-                        variant="contained"
-                        startIcon={<AddIcon />}
-                        onClick={() => navigate('/products/new')}
-                        sx={{
-                            background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-                            color: 'white',
-                            px: 3,
-                            py: 1.5,
-                            fontWeight: 600
-                        }}
-                    >
-                        New Product
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        startIcon={<QrCodeIcon />}
-                        onClick={() => navigate('/scan')}
-                        sx={{
-                            borderColor: 'rgba(255,255,255,0.1)',
-                            color: 'white',
-                            px: 3,
-                            '&:hover': {
-                                borderColor: '#f97316',
-                                background: 'rgba(249, 115, 22, 0.05)'
-                            }
-                        }}
-                    >
-                        Scan
-                    </Button>
+                    {(user?.isAdmin || ['admin', 'manager'].includes(user?.role)) ? (
+                        <>
+                            <Button
+                                variant="contained"
+                                startIcon={<AddIcon />}
+                                onClick={() => navigate('/products/new')}
+                                sx={{
+                                    background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                                    color: 'white',
+                                    px: 3,
+                                    py: 1.5,
+                                    fontWeight: 600
+                                }}
+                            >
+                                New Product
+                            </Button>
+                            <Button
+                                variant="outlined"
+                                startIcon={<QrCodeIcon />}
+                                onClick={() => navigate('/inventory/qr-scan')}
+                                sx={{
+                                    borderColor: 'rgba(255,255,255,0.1)',
+                                    color: 'white',
+                                    px: 3,
+                                    '&:hover': {
+                                        borderColor: '#f97316',
+                                        background: 'rgba(249, 115, 22, 0.05)'
+                                    }
+                                }}
+                            >
+                                Scan
+                            </Button>
+                        </>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            startIcon={<QrCodeIcon />}
+                            onClick={() => navigate('/inventory/qr-scan')}
+                            size="large"
+                            sx={{
+                                background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                                color: 'white',
+                                px: 4,
+                                py: 1.5,
+                                fontWeight: 600,
+                                fontSize: '1.1rem',
+                                boxShadow: '0 4px 14px 0 rgba(37, 99, 235, 0.39)'
+                            }}
+                        >
+                            Start Scanning
+                        </Button>
+                    )}
                 </Box>
             </Box>
 

@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { Box, CircularProgress } from '@mui/material';
 
 const AdminRoute = () => {
-    const { isAuthenticated, loading, hasRole } = useAuth();
+    const { user, loading } = useAuth();
 
     if (loading) {
         return (
@@ -14,7 +14,8 @@ const AdminRoute = () => {
         );
     }
 
-    if (!isAuthenticated || !hasRole('admin')) {
+    // Check strict isAdmin boolean from user object
+    if (!user || user.isAdmin !== true) {
         return <Navigate to="/dashboard" replace />;
     }
 

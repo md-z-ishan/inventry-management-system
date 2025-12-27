@@ -120,11 +120,13 @@ export const AuthProvider = ({ children }) => {
 
   const hasRole = (role) => {
     if (!user) return false;
+    if (user.isAdmin) return true; // Admins have all roles
     return user.role?.toLowerCase() === role.toLowerCase();
   };
 
   const hasAnyRole = (roles) => {
     if (!user) return false;
+    if (user.isAdmin) return true; // Admins have all roles
     return roles.some(role => user.role?.toLowerCase() === role.toLowerCase());
   };
 

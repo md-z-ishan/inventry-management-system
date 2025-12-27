@@ -21,6 +21,8 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     const menuItems = [
         { path: '/dashboard', label: 'Dashboard', icon: <DashboardOutlined /> },
+        { path: '/products', label: 'Products', icon: <Inventory2Outlined /> },
+        { path: '/categories', label: 'Categories', icon: <Inventory2Outlined /> }, // Icon reuse, or could import Category icon
         { path: '/transactions', label: 'Transactions', icon: <ReceiptLong /> },
         { path: '/partners/suppliers', label: 'Suppliers', icon: <LocalShipping /> },
         { path: '/partners/customers', label: 'Customers', icon: <PeopleAlt /> },

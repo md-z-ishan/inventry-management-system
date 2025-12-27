@@ -4,16 +4,25 @@ Enterprise-grade QR Code based inventory management system built with the MERN s
 
 ## 🚀 Features
 
-- **User Authentication & Authorization**: JWT-based authentication with role-based access control
-- **Product Management**: CRUD operations for products with QR code generation
-- **Category Management**: Organize products into categories
-- **Inventory Tracking**: Real-time inventory monitoring and logging
-- **Audit Logging**: Comprehensive logging for all inventory changes
-- **QR Code Integration**: Generate and scan QR codes for products
-- **Email Notifications**: Automated email alerts for low stock and inventory updates
-- **Data Export**: Export inventory data to CSV and PDF formats
-- **API Rate Limiting**: Protection against abuse with rate limiting
-- **Security**: Helmet.js for security headers, CORS, input validation
+### 🛡️ Admin Features
+- **User Management**: Create, view, update, and delete system users
+- **System Dashboard**: View comprehensive system statistics and activity logs
+- **Audit Logs**: Track all system actions for security and compliance
+- **Configuration**: Manage system-wide settings
+
+### 👤 User (Staff) Features
+- **Dashboard**: Personal dashboard with relevant metrics
+- **Inventory Management**: View products and update stock levels
+- **Transactions**: Record stock entries (Purchase, Sale, etc.)
+- **QR Scanning**: Scan product QR codes for quick access
+- **Partner Management**: View customer and supplier lists
+- **Profile Management**: Update personal details and password
+
+### 🚀 Core System Features
+- **Authentication**: Secure JWT-based login with Role-Based Access Control (RBAC)
+- **Product Database**: Centralized product catalog with categories
+- **Security**: Rate limiting, secure headers, and data validation
+- **Notifications**: Email alerts for low stock (configurable)
 
 ## 🛠 Tech Stack
 
@@ -97,31 +106,39 @@ The server will start on `http://localhost:5000` (or the port specified in your 
 - `GET /api/v1/auth/me` - Get current user
 - `PUT /api/v1/auth/updatepassword` - Update password
 
-### Users
-- `GET /api/v1/users` - Get all users (Admin only)
-- `GET /api/v1/users/:id` - Get single user
-- `PUT /api/v1/users/:id` - Update user
-- `DELETE /api/v1/users/:id` - Delete user
+### User Management (Admin Only)
+- `GET /api/v1/users` - Get all users
+- `POST /api/v1/users` - Create a new user
+- `GET /api/v1/users/:id` - Get specific user details
+- `PUT /api/v1/users/:id` - Update user details
+- `DELETE /api/v1/users/:id` - Delete a user
+- `GET /api/v1/users/:id/activity` - View user activity logs
+
+### Admin Operations
+- `GET /api/v1/admin/stats` - Get system dashboard statistics
+- `GET /api/v1/admin/logs` - View system logs
 
 ### Products
 - `GET /api/v1/products` - Get all products
-- `POST /api/v1/products` - Create product
+- `POST /api/v1/products` - Create product (Admin/Manager)
 - `GET /api/v1/products/:id` - Get single product
-- `PUT /api/v1/products/:id` - Update product
-- `DELETE /api/v1/products/:id` - Delete product
+- `PUT /api/v1/products/:id` - Update product (Admin/Manager)
+- `DELETE /api/v1/products/:id` - Delete product (Admin only)
+- `POST /api/v1/products/:id/stock` - Update stock level
 - `GET /api/v1/products/:id/qr` - Generate QR code for product
 
 ### Categories
 - `GET /api/v1/categories` - Get all categories
-- `POST /api/v1/categories` - Create category
+- `POST /api/v1/categories` - Create category (Admin/Manager)
 - `GET /api/v1/categories/:id` - Get single category
-- `PUT /api/v1/categories/:id` - Update category
-- `DELETE /api/v1/categories/:id` - Delete category
+- `PUT /api/v1/categories/:id` - Update category (Admin/Manager)
+- `DELETE /api/v1/categories/:id` - Delete category (Admin only)
 
-### Inventory
-- `GET /api/v1/inventory` - Get inventory summary
-- `POST /api/v1/inventory/adjust` - Adjust inventory levels
-- `GET /api/v1/inventory/logs` - Get inventory logs
+### Inventory & Audit
+- `GET /api/v1/inventory/summary` - Get inventory summary
+- `GET /api/v1/inventory/logs` - Get inventory movement logs
+- `GET /api/v1/inventory/audit` - Get system audit logs (Admin only)
+- `POST /api/v1/inventory/export` - Export inventory data
 
 ### Health Check
 - `GET /api/v1/health` - API health check
