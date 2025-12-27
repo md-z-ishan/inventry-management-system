@@ -148,6 +148,7 @@ const AdminLayout = () => {
                                     component={Link}
                                     to={item.path}
                                     selected={location.pathname === item.path}
+                                    onClick={isMobile ? handleDrawerToggle : undefined}
                                 >
                                     <ListItemIcon>
                                         {item.icon}

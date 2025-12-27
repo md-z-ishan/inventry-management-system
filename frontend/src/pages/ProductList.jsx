@@ -104,12 +104,11 @@ const ProductList = () => {
                 <Button
                     variant="contained"
                     startIcon={<AddIcon />}
-                    onClick={() => navigate('/products/new')}
+                    onClick={() => navigate('new')}
                     sx={{
                         background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
                         fontWeight: 600,
-                        px: 3,
-                        width: { xs: '100%', md: 'auto' }
+                        px: 3
                     }}
                 >
                     Add Product
@@ -228,7 +227,7 @@ const ProductList = () => {
                                                 <Tooltip title="Edit">
                                                     <IconButton
                                                         size="small"
-                                                        onClick={() => navigate(`/products/edit/${product._id}`)}
+                                                        onClick={() => navigate(`edit/${product._id}`)}
                                                         sx={{ color: 'warning.main' }}
                                                     >
                                                         <EditIcon fontSize="small" />

@@ -24,14 +24,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { categoryAPI } from '../../api/services';
 import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
+// import { useAuth } from '../../context/AuthContext';
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
     const [editingCategory, setEditingCategory] = useState(null);
-    const { hasAnyRole } = useAuth();
+    // const { hasAnyRole } = useAuth();
 
     // const canManage = hasAnyRole(['admin', 'manager']);
 
@@ -77,8 +77,8 @@ const CategoryList = () => {
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            description: ''
+            name: editingCategory?.name || '',
+            description: editingCategory?.description || ''
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Required').max(100, 'Too long'),
@@ -102,16 +102,6 @@ const CategoryList = () => {
         enableReinitialize: true
     });
 
-    useEffect(() => {
-        if (editingCategory) {
-            formik.setValues({
-                name: editingCategory.name || '',
-                description: editingCategory.description || ''
-            });
-        } else {
-            formik.resetForm();
-        }
-    }, [editingCategory, formik]);
 
     return (
         <Box className="animate-fade-in">
@@ -224,7 +214,11 @@ const CategoryList = () => {
                             helperText={formik.touched.name && formik.errors.name}
                             margin="normal"
                             variant="outlined"
-                            sx={{ '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.05)' } }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.05)', color: 'white' },
+                                '& .MuiInputLabel-root': { color: 'text.secondary' },
+                                '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,0.2)' }
+                            }}
                         />
                         <TextField
                             fullWidth
@@ -236,7 +230,11 @@ const CategoryList = () => {
                             multiline
                             rows={3}
                             variant="outlined"
-                            sx={{ '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.05)' } }}
+                            sx={{
+                                '& .MuiOutlinedInput-root': { bgcolor: 'rgba(255,255,255,0.05)', color: 'white' },
+                                '& .MuiInputLabel-root': { color: 'text.secondary' },
+                                '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,0.2)' }
+                            }}
                         />
                     </DialogContent>
                     <DialogActions sx={{ p: 3, borderTop: '1px solid rgba(255,255,255,0.1)' }}>

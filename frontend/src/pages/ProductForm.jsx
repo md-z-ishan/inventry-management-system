@@ -70,7 +70,7 @@ const ProductForm = () => {
             });
         } catch (error) {
             toast.error('Failed to load product details');
-            navigate('/products');
+            navigate(window.location.pathname.includes('/admin') ? '/admin/products' : '/user/products');
         } finally {
             setLoading(false);
         }
@@ -118,7 +118,7 @@ const ProductForm = () => {
                     await productAPI.createProduct(payload);
                     toast.success('Product created successfully');
                 }
-                navigate('/products');
+                navigate(window.location.pathname.includes('/admin') ? '/admin/products' : '/user/products');
             } catch (error) {
                 toast.error(error.response?.data?.message || 'Operation failed');
             } finally {
@@ -134,7 +134,7 @@ const ProductForm = () => {
     return (
         <Box className="animate-fade-in">
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                <IconButton onClick={() => navigate('/products')} sx={{ mr: 1, color: 'white' }}>
+                <IconButton onClick={() => navigate(window.location.pathname.includes('/admin') ? '/admin/products' : '/user/products')} sx={{ mr: 1, color: 'white' }}>
                     <ArrowBack />
                 </IconButton>
                 <Typography variant="h4" fontWeight="bold" sx={{ color: 'white' }}>
@@ -301,7 +301,7 @@ const ProductForm = () => {
                     <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3 }}>
                         <Button
                             variant="outlined"
-                            onClick={() => navigate('/products')}
+                            onClick={() => navigate(window.location.pathname.includes('/admin') ? '/admin/products' : '/user/products')}
                             sx={{ mr: 2, color: 'text.secondary', borderColor: 'rgba(255,255,255,0.2)' }}
                         >
                             Cancel
