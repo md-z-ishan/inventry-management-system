@@ -3,18 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
-
-
-// Context Providers
-import { AuthProvider } from './context/AuthContext';
-
-// Layout Components
+import { AuthProvider } from './context/AuthContext'
 import ErrorBoundary from './components/common/ErrorBoundary';
-
-// Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
-// Dashboard is now AdminDashboard or UserDashboard
 import ProductForm from './pages/ProductForm';
 import CategoryList from './pages/Categories/CategoryList';
 import ProductList from './pages/ProductList';
@@ -30,26 +22,20 @@ import TransactionList from './pages/TransactionList';
 import TransactionForm from './pages/TransactionForm';
 import TransactionDetail from './pages/TransactionDetail';
 import PrintLabels from './pages/PrintLabels';
-
-// Protected Route
-// Protected Route
 import ProtectedRoute from './routes/ProtectedRoute';
 import AdminRoute from './components/common/AdminRoute';
 import UserRoute from './components/common/UserRoute';
 import RoleBasedRedirect from './components/common/RoleBasedRedirect';
 
-// Admin Pages
+
 import AdminLayout from './components/layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import StaffManagement from './pages/admin/StaffManagement';
 import ActivityLogs from './pages/admin/ActivityLogs';
 
-// User Pages
 import UserLayout from './components/layout/UserLayout';
 import UserDashboard from './pages/user/UserDashboard';
 
-// Theme
-// you can choose any theme, dark or light suitable to you
 
 import { ThemeProvider } from './context/ThemeContext';
 
@@ -115,6 +101,8 @@ function App() {
                   <Route index element={<UserDashboard />} />
                   <Route path="scan" element={<QRScannerPage />} />
                   <Route path="products" element={<ProductList />} />
+                  <Route path="products/new" element={<ProductForm />} />
+                  <Route path="products/edit/:id" element={<ProductForm />} />
                   <Route path="transactions" element={<TransactionList />} />
                   <Route path="profile" element={<Profile />} />
                 </Route>
