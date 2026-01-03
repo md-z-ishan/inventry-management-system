@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const InventoryLog = require('../models/InventoryLog');
 const AuditLog = require('../models/AuditLog');
 const { NotFoundError, AuthorizationError } = require('../utils/errorResponse');
 const asyncHandler = require('../utils/asyncHandler');
@@ -270,43 +271,65 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 // @route   GET /api/v1/users/:id/activity
 // @access  Private/Admin
 exports.getUserActivity = asyncHandler(async (req, res, next) => {
-    const { days = 7 } = req.query;
+    const { limit = 50 } = req.query;
+    const userId = req.params.id;
 
-    const activity = await AuditLog.aggregate([
-        {
-            $match: {
-                performedBy: req.params.id,
-                createdAt: {
-                    $gte: new Date(Date.now() - days * 24 * 60 * 60 * 1000)
-                }
-            }
-        },
-        {
-            $group: {
-                _id: {
-                    $dateToString: { format: "%Y-%m-%d", date: "$createdAt" }
-                },
-                actions: { $push: "$action" },
-                entities: { $push: "$entity" },
-                count: { $sum: 1 }
-            }
-        },
-        {
-            $sort: { _id: -1 }
-        },
-        {
-            $project: {
-                date: "$_id",
-                actions: 1,
-                entities: 1,
-                count: 1,
-                _id: 0
-            }
-        }
+    // Fetch AuditLogs (Admin actions, System changes)
+    const auditLogsPromise = AuditLog.find({ performedBy: userId })
+        .sort({ createdAt: -1 })
+        .limit(parseInt(limit))
+        .lean();
+
+    // Fetch InventoryLogs (Stock movements, etc.)
+    const inventoryLogsPromise = InventoryLog.find({ performedBy: userId })
+        .populate('product', 'name productId')
+        .sort({ createdAt: -1 })
+        .limit(parseInt(limit))
+        .lean();
+
+    const [auditLogs, inventoryLogs] = await Promise.all([
+        auditLogsPromise,
+        inventoryLogsPromise
     ]);
+
+    // Format InventoryLogs to match a general activity structure
+    const formattedInventoryLogs = inventoryLogs.map(log => ({
+        _id: log._id,
+        type: 'INVENTORY',
+        action: log.action,
+        entity: 'PRODUCT',
+        description: `${log.action} - ${log.product?.name || 'Unknown Product'} (Qty: ${log.quantity})`,
+        createdAt: log.createdAt,
+        details: {
+            productName: log.product?.name,
+            quantity: log.quantity,
+            transactionType: log.transactionType,
+            reason: log.reason
+        }
+    }));
+
+    // Format AuditLogs
+    const formattedAuditLogs = auditLogs.map(log => ({
+        _id: log._id,
+        type: 'AUDIT',
+        action: log.action,
+        entity: log.entity,
+        description: log.description,
+        createdAt: log.createdAt,
+        details: {
+            changes: log.changes,
+            status: log.status
+        }
+    }));
+
+    // Combine and Sort by Date Descending
+    const combinedLogs = [...formattedInventoryLogs, ...formattedAuditLogs]
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        .slice(0, parseInt(limit));
 
     res.status(200).json({
         success: true,
-        data: activity
+        count: combinedLogs.length,
+        data: combinedLogs
     });
 });

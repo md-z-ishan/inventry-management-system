@@ -31,7 +31,8 @@ import {
     Edit as EditIcon,
     Search as SearchIcon,
     Block as BlockIcon,
-    CheckCircle as CheckCircleIcon
+    CheckCircle as CheckCircleIcon,
+    History as HistoryIcon
 } from '@mui/icons-material';
 import { userAPI } from '../../api/services';
 import { toast } from 'react-toastify';
@@ -156,6 +157,30 @@ const StaffManagement = () => {
         }
     });
 
+    const [activityDialogOpen, setActivityDialogOpen] = useState(false);
+    const [selectedUserActivity, setSelectedUserActivity] = useState([]);
+    const [activityLoading, setActivityLoading] = useState(false);
+
+    const handleViewActivity = async (user) => {
+        setActivityLoading(true);
+        setActivityDialogOpen(true);
+        setEditingUser(user); // Reuse editingUser for the dialog title
+        try {
+            const response = await userAPI.getUserActivity(user._id);
+            setSelectedUserActivity(response.data.data);
+        } catch (error) {
+            toast.error('Failed to fetch user activity');
+        } finally {
+            setActivityLoading(false);
+        }
+    };
+
+    const handleCloseActivityDialog = () => {
+        setActivityDialogOpen(false);
+        setSelectedUserActivity([]);
+        setEditingUser(null);
+    };
+
     return (
         <Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
@@ -229,6 +254,13 @@ const StaffManagement = () => {
                                             />
                                         </TableCell>
                                         <TableCell align="right">
+                                            <IconButton
+                                                color="info"
+                                                onClick={() => handleViewActivity(user)}
+                                                title="View Activity"
+                                            >
+                                                <HistoryIcon />
+                                            </IconButton>
                                             <IconButton
                                                 color="primary"
                                                 onClick={() => handleOpenDialog(user)}
@@ -332,6 +364,57 @@ const StaffManagement = () => {
                         </Button>
                     </DialogActions>
                 </form>
+            </Dialog>
+
+            {/* Activity Log Dialog */}
+            <Dialog open={activityDialogOpen} onClose={handleCloseActivityDialog} maxWidth="md" fullWidth>
+                <DialogTitle>Activity History - {editingUser?.name}</DialogTitle>
+                <DialogContent dividers>
+                    {activityLoading ? (
+                        <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
+                            <CircularProgress />
+                        </Box>
+                    ) : selectedUserActivity.length === 0 ? (
+                        <Typography align="center" color="text.secondary" sx={{ py: 3 }}>
+                            No recent activity found.
+                        </Typography>
+                    ) : (
+                        <TableContainer>
+                            <Table size="small">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Date & Time</TableCell>
+                                        <TableCell>Type</TableCell>
+                                        <TableCell>Action</TableCell>
+                                        <TableCell>Description</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {selectedUserActivity.map((log) => (
+                                        <TableRow key={log._id} hover>
+                                            <TableCell sx={{ whiteSpace: 'nowrap' }}>
+                                                {new Date(log.createdAt).toLocaleString()}
+                                            </TableCell>
+                                            <TableCell>
+                                                <Chip
+                                                    label={log.type}
+                                                    size="small"
+                                                    color={log.type === 'INVENTORY' ? 'primary' : 'default'}
+                                                    variant="outlined"
+                                                />
+                                            </TableCell>
+                                            <TableCell>{log.action}</TableCell>
+                                            <TableCell>{log.description}</TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    )}
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseActivityDialog}>Close</Button>
+                </DialogActions>
             </Dialog>
         </Box>
     );

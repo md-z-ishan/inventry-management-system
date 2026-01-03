@@ -295,3 +295,7 @@
 {"level":"error","message":"409 - User already exists - /api/v1/auth/register - POST - ::1","service":"inventory-api","timestamp":"2025-12-31 20:03:07"}
 {"level":"error","message":"500 - Validation failed: phone: Please provide a valid phone number - /api/v1/auth/updatedetails - PUT - ::1","service":"inventory-api","timestamp":"2025-12-31 20:03:48"}
 {"level":"error","message":"403 - Access denied: staff role is not authorized - /api/v1/products - POST - ::1","service":"inventory-api","timestamp":"2026-01-02 15:03:19"}
+{"level":"error","message":"500 - Supplier validation failed: email: Please provide a valid email - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2026-01-03 09:20:54"}
+{"level":"error","message":"500 - Supplier validation failed: email: Please provide a valid email - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2026-01-03 09:21:01"}
+{"level":"error","message":"500 - E11000 duplicate key error collection: inventory_db.suppliers index: name_1 dup key: { name: \"md zishannnn\" } - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2026-01-03 09:21:30"}
+{"level":"error","message":"500 - E11000 duplicate key error collection: inventory_db.suppliers index: name_1 dup key: { name: \"md zishannnn\" } - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2026-01-03 09:21:34"}
