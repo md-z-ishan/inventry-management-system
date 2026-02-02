@@ -1,6 +1,8 @@
 # 📦 Inventory Management System
 
 Enterprise-grade QR Code based inventory management system built with the MERN stack (MongoDB, Express.js, React, Node.js).
+☑️ Deployed Link:
+https://inventry-management-system-ten.vercel.app/register
 
 ## 🚀 Features
 
