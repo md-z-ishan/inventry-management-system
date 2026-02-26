@@ -13,7 +13,7 @@ const Register = () => {
         // confirmPassword: '' // Ideally add this validation
     });
     const [loading, setLoading] = useState(false);
-    const [registerRole, setRegisterRole] = useState('user'); // 'admin' or 'user' (default to user/staff to be safe, or match login default)
+    const [registerRole, setRegisterRole] = useState('staff'); // 'admin' or 'staff'
     const [showPassword, setShowPassword] = useState(false);
     const { register, isAuthenticated, user } = useAuth();
     const navigate = useNavigate();
@@ -33,10 +33,9 @@ const Register = () => {
         e.preventDefault();
         setLoading(true);
 
-        // Prepare data with selected role
         const registrationData = {
             ...formData,
-            role: registerRole
+            role: registerRole === 'admin' ? 'admin' : 'staff'
         };
 
         try {
@@ -105,8 +104,8 @@ const Register = () => {
                             Admin
                         </button>
                         <button
-                            onClick={() => setRegisterRole('user')}
-                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${registerRole === 'user'
+                            onClick={() => setRegisterRole('staff')}
+                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${registerRole === 'staff'
                                 ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
                                 : 'text-slate-400 hover:text-white hover:bg-white/5'
                                 }`}

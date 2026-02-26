@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { ROLES } = require('../config/constants');
 
@@ -161,6 +162,23 @@ UserSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
         return JWTTimestamp < changedTimestamp;
     }
     return false;
+};
+
+// Method to generate and hash password reset token
+UserSchema.methods.getResetPasswordToken = function () {
+    // Generate token
+    const resetToken = crypto.randomBytes(20).toString('hex');
+
+    // Hash token and set to passwordResetToken field
+    this.passwordResetToken = crypto
+        .createHash('sha256')
+        .update(resetToken)
+        .digest('hex');
+
+    // Set expiry — 10 minutes
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+
+    return resetToken; // Return plain token (to send via email)
 };
 
 // Virtual for full name

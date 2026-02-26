@@ -15,8 +15,13 @@ const AdminRoute = () => {
     }
 
     // Check strict isAdmin boolean from user object
-    if (!user || user.isAdmin !== true) {
-        return <Navigate to="/dashboard" replace />;
+    if (!user) {
+        return <Navigate to="/login" replace />;
+    }
+
+    if (user.isAdmin !== true) {
+        // Authenticated but not admin — send to user dashboard
+        return <Navigate to="/user" replace />;
     }
 
     return <Outlet />;

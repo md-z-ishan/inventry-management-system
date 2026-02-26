@@ -16,7 +16,8 @@ const setTokenCookie = (res, token) => {
         ),
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict'
+        // 'none' required for cross-domain cookies (Render backend + Vercel frontend)
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict'
     };
 
     res.cookie('token', token, options);

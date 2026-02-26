@@ -3,7 +3,7 @@ const User = require('../models/User');
 const RefreshToken = require('../models/RefreshToken');
 const AuditLog = require('../models/AuditLog');
 const { generateToken, setTokenCookie, generateRefreshToken } = require('../utils/token');
-const { AuthenticationError, DuplicateError, NotFoundError } = require('../utils/errorResponse');
+const { AuthenticationError, DuplicateError, NotFoundError, ValidationError } = require('../utils/errorResponse');
 const asyncHandler = require('../utils/asyncHandler');
 const emailService = require('../services/emailService');
 
@@ -432,8 +432,9 @@ exports.uploadAvatar = asyncHandler(async (req, res, next) => {
 // @access  Private
 exports.logoutAll = asyncHandler(async (req, res, next) => {
     // Revoke all refresh tokens for this user
+    // Note: isActive is a virtual field — we must query by real schema fields
     await RefreshToken.updateMany(
-        { user: req.user._id, isActive: true },
+        { user: req.user._id, revoked: { $exists: false }, expires: { $gt: new Date() } },
         {
             revoked: Date.now(),
             revokedByIp: req.ip,
@@ -474,7 +475,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-        throw new Error('No user found with this email');
+        throw new NotFoundError('No user found with this email');
     }
 
     // Generate reset token
@@ -482,12 +483,11 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     // Create reset URL
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/auth/resetpassword/${resetToken}`;
-
-    const message = `You are receiving this email because you (or someone else) has requested the reset of a password. Please make a PUT request to: \n\n ${resetUrl}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
     try {
-        // Send email logic here
+        // Send welcome email (non-blocking)
+        emailService.sendWelcomeEmail(user);
         console.log('Reset password email would be sent to:', user.email);
         console.log('Reset URL:', resetUrl);
 
@@ -497,8 +497,9 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
         });
     } catch (err) {
         console.log(err);
-        user.resetPasswordToken = undefined;
-        user.resetPasswordExpire = undefined;
+        // Clear the hashed token fields on failure
+        user.passwordResetToken = undefined;
+        user.passwordResetExpires = undefined;
 
         await user.save({ validateBeforeSave: false });
 
@@ -516,19 +517,20 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
         .update(req.params.resettoken)
         .digest('hex');
 
+    // Use correct field names matching User.js schema
     const user = await User.findOne({
-        resetPasswordToken,
-        resetPasswordExpire: { $gt: Date.now() }
+        passwordResetToken: resetPasswordToken,
+        passwordResetExpires: { $gt: Date.now() }
     });
 
     if (!user) {
-        throw new Error('Invalid token');
+        throw new AuthenticationError('Invalid or expired reset token');
     }
 
     // Set new password
     user.password = req.body.password;
-    user.resetPasswordToken = undefined;
-    user.resetPasswordExpire = undefined;
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
     await user.save();
 
     // Log audit
