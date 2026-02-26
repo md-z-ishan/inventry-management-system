@@ -305,3 +305,9 @@
 {"level":"error","message":"500 - E11000 duplicate key error collection: inventory_db.suppliers index: name_1 dup key: { name: \"Areeb Ali\" } - /api/v1/partners/suppliers - POST - ::1","service":"inventory-api","timestamp":"2026-01-03 10:35:29"}
 {"level":"error","message":"401 - Invalid or expired token - /api/v1/auth/me - GET - ::1","service":"inventory-api","timestamp":"2026-02-26 10:08:03"}
 {"level":"error","message":"401 - No refresh token found - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 10:08:03"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:19"}
+{"level":"error","message":"401 - No refresh token found - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:19"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:36"}
+{"level":"error","message":"401 - No refresh token found - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:36"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:43"}
+{"level":"error","message":"401 - No refresh token found - /api/v1/auth/refresh-token - POST - ::1","service":"inventory-api","timestamp":"2026-02-26 13:21:43"}

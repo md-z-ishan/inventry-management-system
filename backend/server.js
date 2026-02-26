@@ -26,8 +26,13 @@ const app = express();
 // Connect to database
 connectDB();
 
-// Security middleware
-app.use(helmet());
+// Security middleware - configured for cross-domain deployment (Render + Vercel)
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' }, // Allow Vercel frontend to use resources
+    crossOriginOpenerPolicy: false,                         // Don't block cross-origin windows
+    crossOriginEmbedderPolicy: false,                       // Don't block cross-origin embeds
+    contentSecurityPolicy: false,                           // CSP managed by frontend
+}));
 app.use(cors({
     origin: (origin, callback) => {
         const allowedOrigins = [
